@@ -1,0 +1,44 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://game/script/ui/inventory/ItemInfo.gd" type="Script" id=1]
+
+
+[node name="Panel" type="Panel"]
+self_modulate = Color( 0.764706, 0.47451, 0.47451, 1 )
+margin_right = 120.0
+margin_bottom = 108.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 112.0
+margin_bottom = 104.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="name" type="Label" parent="VBoxContainer"]
+margin_right = 102.0
+margin_bottom = 14.0
+text = "test"
+
+[node name="desc" type="Label" parent="VBoxContainer"]
+margin_top = 18.0
+margin_right = 102.0
+margin_bottom = 32.0
+
+[node name="prix" type="Label" parent="VBoxContainer"]
+margin_top = 36.0
+margin_right = 102.0
+margin_bottom = 50.0
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+margin_top = 54.0
+margin_right = 102.0
+margin_bottom = 74.0
+text = "Quitter"
+[connection signal="button_up" from="VBoxContainer/Button" to="." method="_on_Button_button_up"]

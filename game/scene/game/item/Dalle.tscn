@@ -1,0 +1,65 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://game/asset/graphic/characters/178-Switch01.png" type="Texture" id=1]
+[ext_resource path="res://game/script/game/item/Dalle.gd" type="Script" id=2]
+[ext_resource path="res://game/asset/audio/SE/035-Switch04.ogg" type="AudioStream" id=3]
+
+
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 12, 12 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "off"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 12, 8, 4, 0 ]
+}
+
+[sub_resource type="Animation" id=3]
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 4, 8, 12 ]
+}
+
+[node name="Dalle" type="Area2D"]
+collision_layer = 8
+script = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+z_index = 1
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+vframes = 4
+hframes = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite"]
+anims/off = SubResource( 2 )
+anims/on = SubResource( 3 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+volume_db = -20.0
+[connection signal="body_entered" from="." to="." method="_on_Dalle_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_Dalle_body_exited"]

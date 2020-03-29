@@ -1,0 +1,17 @@
+[gd_scene format=2]
+
+[node name="Map-exemple" type="Node2D"]
+
+[node name="Tilemaps" type="Node2D" parent="."]
+
+[node name="TileMap" type="TileMap" parent="Tilemaps"]
+format = 1
+
+[node name="PNJ" type="Node2D" parent="."]
+
+[node name="Events" type="Node2D" parent="."]
+
+[node name="Navigation2D" type="Navigation2D" parent="."]
+
+[node name="TileMap" type="TileMap" parent="Navigation2D"]
+format = 1

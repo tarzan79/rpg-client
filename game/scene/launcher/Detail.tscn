@@ -1,0 +1,67 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://game/script/launcher/Detail.gd" type="Script" id=1]
+
+[node name="Detail" type="Control"]
+margin_left = 992.0
+margin_top = 584.0
+margin_right = 1032.0
+margin_bottom = 598.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_top = -8.0
+margin_right = 96.0
+margin_bottom = 24.0
+rect_scale = Vector2( 0.8, 0.8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+margin_right = 96.0
+margin_bottom = 14.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer"]
+margin_right = 35.0
+margin_bottom = 14.0
+text = "Ping: "
+
+[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer"]
+margin_left = 39.0
+margin_right = 87.0
+margin_bottom = 14.0
+text = "112 ms"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 18.0
+margin_right = 96.0
+margin_bottom = 32.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Label" parent="VBoxContainer/HBoxContainer2"]
+margin_right = 56.0
+margin_bottom = 14.0
+text = "Version: "
+
+[node name="Label4" type="Label" parent="VBoxContainer/HBoxContainer2"]
+margin_left = 60.0
+margin_right = 96.0
+margin_bottom = 14.0
+text = "Alpha"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

@@ -1,0 +1,66 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://game/asset/graphic/ui/hud/bar-01.png" type="Texture" id=3]
+[ext_resource path="res://game/asset/graphic/ui/hud/bar-02.png" type="Texture" id=4]
+
+[node name="VBoxContainer" type="VBoxContainer"]
+margin_right = 128.0
+margin_bottom = 22.0
+custom_constants/separation = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+margin_right = 129.0
+margin_bottom = 14.0
+custom_constants/separation = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Type" type="Label" parent="HBoxContainer"]
+margin_right = 29.0
+margin_bottom = 14.0
+rect_min_size = Vector2( 20, 0 )
+text = "nom"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer"]
+margin_left = 29.0
+margin_right = 129.0
+margin_bottom = 14.0
+rect_min_size = Vector2( 100, 0 )
+alignment = 2
+
+[node name="Value" type="Label" parent="HBoxContainer/HBoxContainer"]
+margin_left = 55.0
+margin_right = 71.0
+margin_bottom = 14.0
+text = "10"
+
+[node name="Separator" type="Label" parent="HBoxContainer/HBoxContainer"]
+margin_left = 75.0
+margin_right = 80.0
+margin_bottom = 14.0
+text = "/"
+
+[node name="ValueMax" type="Label" parent="HBoxContainer/HBoxContainer"]
+margin_left = 84.0
+margin_right = 100.0
+margin_bottom = 14.0
+text = "10"
+
+[node name="Gauge" type="TextureProgress" parent="."]
+margin_top = 14.0
+margin_right = 129.0
+margin_bottom = 22.0
+max_value = 50.0
+step = 0.0
+value = 1.3
+texture_under = ExtResource( 3 )
+texture_progress = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="."]

@@ -1,0 +1,84 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://game/asset/graphic/characters/019-Thief04.png" type="Texture" id=1]
+[ext_resource path="res://game/scene/game/character/default-left-4x4.tres" type="Animation" id=2]
+[ext_resource path="res://game/scene/game/character/default-right-4x4.tres" type="Animation" id=3]
+[ext_resource path="res://game/scene/game/character/default-bottom-4x4.tres" type="Animation" id=4]
+[ext_resource path="res://game/scene/game/character/default-top-4x4.tres" type="Animation" id=5]
+[ext_resource path="res://game/script/game/character/pnj.gd" type="Script" id=6]
+[ext_resource path="res://game/asset/graphic/ui/hud/bar-02.png" type="Texture" id=7]
+[ext_resource path="res://game/asset/graphic/ui/hud/bar-01.png" type="Texture" id=8]
+
+[sub_resource type="CircleShape2D" id=1]
+
+[sub_resource type="Animation" id=2]
+resource_name = "hit"
+length = 0.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("..:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.25, 0.35 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 0.662745, 0.662745, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 0.662745, 0.662745, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 0.662745, 0.662745, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="CircleShape2D" id=3]
+
+[node name="PNJ" type="KinematicBody2D" groups=[
+"action",
+]]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 10 )
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+vframes = 4
+hframes = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite"]
+anims/default-bottom-4x4 = ExtResource( 4 )
+anims/default-left-4x4 = ExtResource( 2 )
+anims/default-right-4x4 = ExtResource( 3 )
+anims/default-top-4x4 = ExtResource( 5 )
+anims/hit = SubResource( 2 )
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 0, 10 )
+shape = SubResource( 3 )
+disabled = true
+
+[node name="Control" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureProgress" type="TextureProgress" parent="Control"]
+margin_left = -19.1181
+margin_top = -26.3083
+margin_right = 108.882
+margin_bottom = -18.3083
+rect_scale = Vector2( 0.3, 0.5 )
+value = 25.0
+texture_under = ExtResource( 8 )
+texture_progress = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Position2D" type="Position2D" parent="."]
+position = Vector2( 0, -34.6205 )

@@ -1,0 +1,95 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://game/scene/ui/hud/Bar.tscn" type="PackedScene" id=1]
+[ext_resource path="res://game/asset/graphic/ui/hud/arrow.png" type="Texture" id=2]
+[ext_resource path="res://game/script/ui/hud/Player_0.gd" type="Script" id=3]
+[ext_resource path="res://game/asset/graphic/ui/hud/bar-04.png" type="Texture" id=4]
+[ext_resource path="res://game/asset/graphic/ui/hud/bar-03.png" type="Texture" id=5]
+[ext_resource path="res://game/asset/graphic/ui/hud/bar-01.png" type="Texture" id=6]
+
+[node name="Player_0" type="HBoxContainer"]
+margin_right = 392.0
+margin_bottom = 22.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Bar_ATB" type="VBoxContainer" parent="."]
+margin_right = 128.0
+margin_bottom = 22.0
+custom_constants/separation = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Bar_ATB"]
+margin_right = 128.0
+margin_bottom = 14.0
+custom_constants/separation = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Type" type="Label" parent="Bar_ATB/HBoxContainer"]
+margin_right = 29.0
+margin_bottom = 14.0
+rect_min_size = Vector2( 20, 0 )
+text = "nom"
+
+[node name="Gauge" type="TextureProgress" parent="Bar_ATB"]
+margin_top = 14.0
+margin_right = 128.0
+margin_bottom = 22.0
+max_value = 50.0
+value = 50.0
+texture_under = ExtResource( 6 )
+texture_progress = ExtResource( 4 )
+
+[node name="Tween" type="Tween" parent="Bar_ATB"]
+
+[node name="Bar_PV" parent="." instance=ExtResource( 1 )]
+margin_left = 132.0
+margin_right = 260.0
+
+[node name="HBoxContainer" parent="Bar_PV" index="0"]
+margin_right = 128.0
+
+[node name="Type" parent="Bar_PV/HBoxContainer" index="0"]
+margin_right = 20.0
+text = "PV"
+
+[node name="HBoxContainer" parent="Bar_PV/HBoxContainer" index="1"]
+margin_left = 20.0
+margin_right = 120.0
+
+[node name="Gauge" parent="Bar_PV" index="1"]
+margin_right = 128.0
+
+[node name="Bar_PM" parent="." instance=ExtResource( 1 )]
+margin_left = 264.0
+margin_right = 392.0
+
+[node name="HBoxContainer" parent="Bar_PM" index="0"]
+margin_right = 128.0
+
+[node name="Type" parent="Bar_PM/HBoxContainer" index="0"]
+margin_right = 20.0
+text = "PM"
+
+[node name="HBoxContainer" parent="Bar_PM/HBoxContainer" index="1"]
+margin_left = 20.0
+margin_right = 120.0
+
+[node name="Gauge" parent="Bar_PM" index="1"]
+margin_right = 128.0
+texture_progress = ExtResource( 5 )
+
+[node name="Sprite" type="Sprite" parent="."]
+visible = false
+position = Vector2( -26, 15 )
+texture = ExtResource( 2 )
+
+[editable path="Bar_PV"]
+
+[editable path="Bar_PM"]

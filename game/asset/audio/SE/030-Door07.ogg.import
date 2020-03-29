@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/030-Door07.ogg-766d45ac61f8540d30a6d2e70d95481f.oggstr"
+
+[deps]
+
+source_file="res://game/asset/audio/SE/030-Door07.ogg"
+dest_files=[ "res://.import/030-Door07.ogg-766d45ac61f8540d30a6d2e70d95481f.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
